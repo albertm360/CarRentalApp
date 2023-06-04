@@ -15,3 +15,4 @@ C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\bin\Debug\EntityFram
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.csproj.CopyComplete
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.MainWindow.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddRentalRecord.resources
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ManageVehicleListing.resources
