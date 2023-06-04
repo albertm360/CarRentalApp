@@ -22,5 +22,14 @@ namespace CarRentalApp
             AddRentalRecord rentalRecord = new AddRentalRecord();
             rentalRecord.Show();
         }
+
+        private void addRentalRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRentalRecord addRentalRecord = new AddRentalRecord();
+            addRentalRecord.MdiParent = this;
+            addRentalRecord.WindowState = FormWindowState.Maximized;
+            addRentalRecord.Show();
+            
+        }
     }
 }

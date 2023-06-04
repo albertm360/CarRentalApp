@@ -97,13 +97,6 @@ namespace CarRentalApp
             // DataSource: the source for the combo box comes from cars:
             cbCarType.DataSource = cars;
         }
-
-        private void btn_mainWindow_Click(object sender, EventArgs e)
-        {
-            // Instantiate MainWindow Form:
-            MainWindow mainWindow = new MainWindow();
-            // Call the MainWindows form when the button is pressed:
-            mainWindow.Show();
-        }
+        
     }
 }
