@@ -36,7 +36,7 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Cascadia Code SemiBold", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(273, 9);
+            this.lbl_title.Location = new System.Drawing.Point(285, 9);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(240, 45);
             this.lbl_title.TabIndex = 1;
@@ -46,9 +46,9 @@
             // btnCarRentalSystem
             // 
             this.btnCarRentalSystem.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarRentalSystem.Location = new System.Drawing.Point(275, 199);
+            this.btnCarRentalSystem.Location = new System.Drawing.Point(293, 57);
             this.btnCarRentalSystem.Name = "btnCarRentalSystem";
-            this.btnCarRentalSystem.Size = new System.Drawing.Size(250, 53);
+            this.btnCarRentalSystem.Size = new System.Drawing.Size(232, 53);
             this.btnCarRentalSystem.TabIndex = 10;
             this.btnCarRentalSystem.Text = "Add Rental Record";
             this.btnCarRentalSystem.UseVisualStyleBackColor = true;
