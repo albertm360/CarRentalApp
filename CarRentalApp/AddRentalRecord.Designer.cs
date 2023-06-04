@@ -40,7 +40,6 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.tbCost = new System.Windows.Forms.TextBox();
             this.lblCost = new System.Windows.Forms.Label();
-            this.btn_mainWindow = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_title
@@ -51,7 +50,7 @@
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(360, 45);
             this.lbl_title.TabIndex = 0;
-            this.lbl_title.Text = "Car Rental System";
+            this.lbl_title.Text = "Add Rental Record";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbCustomerName
@@ -157,23 +156,11 @@
             this.lblCost.TabIndex = 11;
             this.lblCost.Text = "Cost";
             // 
-            // btn_mainWindow
-            // 
-            this.btn_mainWindow.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_mainWindow.Location = new System.Drawing.Point(12, 388);
-            this.btn_mainWindow.Name = "btn_mainWindow";
-            this.btn_mainWindow.Size = new System.Drawing.Size(250, 53);
-            this.btn_mainWindow.TabIndex = 12;
-            this.btn_mainWindow.Text = "Launch Main Window";
-            this.btn_mainWindow.UseVisualStyleBackColor = true;
-            this.btn_mainWindow.Click += new System.EventHandler(this.btn_mainWindow_Click);
-            // 
-            // Form1
+            // AddRentalRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 453);
-            this.Controls.Add(this.btn_mainWindow);
             this.Controls.Add(this.lblCost);
             this.Controls.Add(this.tbCost);
             this.Controls.Add(this.btnSubmit);
@@ -186,8 +173,8 @@
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.tbCustomerName);
             this.Controls.Add(this.lbl_title);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "AddRentalRecord";
+            this.Text = "Add Rental Record";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,7 +195,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox tbCost;
         private System.Windows.Forms.Label lblCost;
-        private System.Windows.Forms.Button btn_mainWindow;
     }
 }
 

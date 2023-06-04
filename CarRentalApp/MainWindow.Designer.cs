@@ -28,41 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_title = new System.Windows.Forms.Label();
-            this.btnCarRentalSystem = new System.Windows.Forms.Button();
+            this.Menu = new System.Windows.Forms.MenuStrip();
+            this.manageVehicleListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRentalRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRentalRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewArchiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editRentalRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbl_title
+            // Menu
             // 
-            this.lbl_title.AutoSize = true;
-            this.lbl_title.Font = new System.Drawing.Font("Cascadia Code SemiBold", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(285, 9);
-            this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(240, 45);
-            this.lbl_title.TabIndex = 1;
-            this.lbl_title.Text = "Main Window";
-            this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageVehicleListingToolStripMenuItem,
+            this.manageRentalRecordsToolStripMenuItem});
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(1170, 30);
+            this.Menu.TabIndex = 0;
+            this.Menu.Text = "menu";
             // 
-            // btnCarRentalSystem
+            // manageVehicleListingToolStripMenuItem
             // 
-            this.btnCarRentalSystem.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarRentalSystem.Location = new System.Drawing.Point(293, 57);
-            this.btnCarRentalSystem.Name = "btnCarRentalSystem";
-            this.btnCarRentalSystem.Size = new System.Drawing.Size(232, 53);
-            this.btnCarRentalSystem.TabIndex = 10;
-            this.btnCarRentalSystem.Text = "Add Rental Record";
-            this.btnCarRentalSystem.UseVisualStyleBackColor = true;
-            this.btnCarRentalSystem.Click += new System.EventHandler(this.btnCarRentalSystem_Click);
+            this.manageVehicleListingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addVehicleToolStripMenuItem,
+            this.removeVehicleToolStripMenuItem,
+            this.editVehicleToolStripMenuItem,
+            this.viewListingToolStripMenuItem});
+            this.manageVehicleListingToolStripMenuItem.Name = "manageVehicleListingToolStripMenuItem";
+            this.manageVehicleListingToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.manageVehicleListingToolStripMenuItem.Text = "Manage Vehicle Listing";
+            // 
+            // addVehicleToolStripMenuItem
+            // 
+            this.addVehicleToolStripMenuItem.Name = "addVehicleToolStripMenuItem";
+            this.addVehicleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addVehicleToolStripMenuItem.Text = "Add Vehicle";
+            // 
+            // removeVehicleToolStripMenuItem
+            // 
+            this.removeVehicleToolStripMenuItem.Name = "removeVehicleToolStripMenuItem";
+            this.removeVehicleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeVehicleToolStripMenuItem.Text = "Remove Vehicle";
+            // 
+            // editVehicleToolStripMenuItem
+            // 
+            this.editVehicleToolStripMenuItem.Name = "editVehicleToolStripMenuItem";
+            this.editVehicleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editVehicleToolStripMenuItem.Text = "Edit Vehicle";
+            // 
+            // viewListingToolStripMenuItem
+            // 
+            this.viewListingToolStripMenuItem.Name = "viewListingToolStripMenuItem";
+            this.viewListingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewListingToolStripMenuItem.Text = "View Listing";
+            // 
+            // manageRentalRecordsToolStripMenuItem
+            // 
+            this.manageRentalRecordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRentalRecordToolStripMenuItem,
+            this.viewArchiveToolStripMenuItem,
+            this.editRentalRecordToolStripMenuItem});
+            this.manageRentalRecordsToolStripMenuItem.Name = "manageRentalRecordsToolStripMenuItem";
+            this.manageRentalRecordsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.manageRentalRecordsToolStripMenuItem.Text = "Manage Rental Records";
+            // 
+            // addRentalRecordToolStripMenuItem
+            // 
+            this.addRentalRecordToolStripMenuItem.Name = "addRentalRecordToolStripMenuItem";
+            this.addRentalRecordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addRentalRecordToolStripMenuItem.Text = "Add Rental Record";
+            this.addRentalRecordToolStripMenuItem.Click += new System.EventHandler(this.addRentalRecordToolStripMenuItem_Click);
+            // 
+            // viewArchiveToolStripMenuItem
+            // 
+            this.viewArchiveToolStripMenuItem.Name = "viewArchiveToolStripMenuItem";
+            this.viewArchiveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewArchiveToolStripMenuItem.Text = "View Archive";
+            // 
+            // editRentalRecordToolStripMenuItem
+            // 
+            this.editRentalRecordToolStripMenuItem.Name = "editRentalRecordToolStripMenuItem";
+            this.editRentalRecordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editRentalRecordToolStripMenuItem.Text = "Edit Rental Record";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCarRentalSystem);
-            this.Controls.Add(this.lbl_title);
+            this.ClientSize = new System.Drawing.Size(1170, 630);
+            this.Controls.Add(this.Menu);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.Menu;
             this.Name = "MainWindow";
-            this.Text = "Main Window";
+            this.Text = "Car Rental Management System";
+            this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,7 +136,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_title;
-        private System.Windows.Forms.Button btnCarRentalSystem;
+        private System.Windows.Forms.MenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem manageVehicleListingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewListingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageRentalRecordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRentalRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewArchiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editRentalRecordToolStripMenuItem;
     }
 }
