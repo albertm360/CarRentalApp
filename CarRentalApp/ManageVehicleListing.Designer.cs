@@ -40,20 +40,22 @@
             // gvVehicleList
             // 
             this.gvVehicleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvVehicleList.Location = new System.Drawing.Point(12, 120);
+            this.gvVehicleList.Location = new System.Drawing.Point(9, 98);
+            this.gvVehicleList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gvVehicleList.Name = "gvVehicleList";
             this.gvVehicleList.RowHeadersWidth = 51;
             this.gvVehicleList.RowTemplate.Height = 24;
-            this.gvVehicleList.Size = new System.Drawing.Size(312, 318);
+            this.gvVehicleList.Size = new System.Drawing.Size(853, 258);
             this.gvVehicleList.TabIndex = 0;
             // 
             // lblVehicles
             // 
             this.lblVehicles.AutoSize = true;
             this.lblVehicles.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVehicles.Location = new System.Drawing.Point(12, 90);
+            this.lblVehicles.Location = new System.Drawing.Point(9, 73);
+            this.lblVehicles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVehicles.Name = "lblVehicles";
-            this.lblVehicles.Size = new System.Drawing.Size(108, 27);
+            this.lblVehicles.Size = new System.Drawing.Size(82, 21);
             this.lblVehicles.TabIndex = 3;
             this.lblVehicles.Text = "Vehicles";
             // 
@@ -61,9 +63,10 @@
             // 
             this.lbl_titleManageVehicleListing.AutoSize = true;
             this.lbl_titleManageVehicleListing.Font = new System.Drawing.Font("Cascadia Code SemiBold", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_titleManageVehicleListing.Location = new System.Drawing.Point(177, 9);
+            this.lbl_titleManageVehicleListing.Location = new System.Drawing.Point(133, 7);
+            this.lbl_titleManageVehicleListing.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_titleManageVehicleListing.Name = "lbl_titleManageVehicleListing";
-            this.lbl_titleManageVehicleListing.Size = new System.Drawing.Size(460, 45);
+            this.lbl_titleManageVehicleListing.Size = new System.Drawing.Size(367, 35);
             this.lbl_titleManageVehicleListing.TabIndex = 4;
             this.lbl_titleManageVehicleListing.Text = "Manage Vehicle Listing";
             this.lbl_titleManageVehicleListing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,9 +74,10 @@
             // btnAddNewCar
             // 
             this.btnAddNewCar.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewCar.Location = new System.Drawing.Point(387, 120);
+            this.btnAddNewCar.Location = new System.Drawing.Point(13, 388);
+            this.btnAddNewCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddNewCar.Name = "btnAddNewCar";
-            this.btnAddNewCar.Size = new System.Drawing.Size(250, 53);
+            this.btnAddNewCar.Size = new System.Drawing.Size(188, 43);
             this.btnAddNewCar.TabIndex = 10;
             this.btnAddNewCar.Text = "Add New Car";
             this.btnAddNewCar.UseVisualStyleBackColor = true;
@@ -82,9 +86,10 @@
             // btnDeleteCar
             // 
             this.btnDeleteCar.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCar.Location = new System.Drawing.Point(387, 385);
+            this.btnDeleteCar.Location = new System.Drawing.Point(674, 388);
+            this.btnDeleteCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteCar.Name = "btnDeleteCar";
-            this.btnDeleteCar.Size = new System.Drawing.Size(250, 53);
+            this.btnDeleteCar.Size = new System.Drawing.Size(188, 43);
             this.btnDeleteCar.TabIndex = 11;
             this.btnDeleteCar.Text = "Delete Car";
             this.btnDeleteCar.UseVisualStyleBackColor = true;
@@ -93,9 +98,10 @@
             // btnEditCar
             // 
             this.btnEditCar.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCar.Location = new System.Drawing.Point(387, 254);
+            this.btnEditCar.Location = new System.Drawing.Point(336, 388);
+            this.btnEditCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditCar.Name = "btnEditCar";
-            this.btnEditCar.Size = new System.Drawing.Size(250, 53);
+            this.btnEditCar.Size = new System.Drawing.Size(188, 43);
             this.btnEditCar.TabIndex = 12;
             this.btnEditCar.Text = "Edit Car";
             this.btnEditCar.UseVisualStyleBackColor = true;
@@ -103,15 +109,16 @@
             // 
             // ManageVehicleListing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(876, 450);
             this.Controls.Add(this.btnEditCar);
             this.Controls.Add(this.btnDeleteCar);
             this.Controls.Add(this.btnAddNewCar);
             this.Controls.Add(this.lbl_titleManageVehicleListing);
             this.Controls.Add(this.lblVehicles);
             this.Controls.Add(this.gvVehicleList);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageVehicleListing";
             this.Text = "Manage Vehicle Listing";
             this.Load += new System.EventHandler(this.ManageVehicleListing_Load);

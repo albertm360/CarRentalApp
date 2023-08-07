@@ -89,11 +89,13 @@ namespace CarRentalApp
         {
             // Native C# but the library is called LINQ:
             // select * from TypesOfCars
-            var cars = carRentalEntities.TypesOfCars.ToList();
+            //var cars = carRentalEntities.TypesOfCars.ToList();
+            var cars = carRentalEntities.TypesOfCars
+                .Select(q => new { Id = q.Id, Name = q.Make + " " + q.Model }).ToList();
             // DisplayMember: display the name:
-            cbCarType.DisplayMember = "name";
+            cbCarType.DisplayMember = "Name";
             // ValueMember: store the id:
-            cbCarType.ValueMember = "id";
+            cbCarType.ValueMember = "Id";
             // DataSource: the source for the combo box comes from cars:
             cbCarType.DataSource = cars;
         }

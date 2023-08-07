@@ -20,12 +20,14 @@ namespace CarRentalApp
             this.CarRentalRecords = new HashSet<CarRentalRecord>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
+        public int Id { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public string VIN { get; set; }
+        public string LicensePlateNumber { get; set; }
+        public Nullable<int> Year { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarRentalRecord> CarRentalRecords { get; set; }
-        public virtual TypesOfCar TypesOfCars1 { get; set; }
-        public virtual TypesOfCar TypesOfCar1 { get; set; }
     }
 }
