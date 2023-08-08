@@ -16,3 +16,4 @@ C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalA
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.MainWindow.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddRentalRecord.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ManageVehicleListing.resources
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddEditVehicle.resources
