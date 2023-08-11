@@ -17,6 +17,7 @@ namespace CarRentalApp
         public AddEditVehicle()
         {
             InitializeComponent();
+            Text = "Add new vehicle";
             lbl_title.Text = "Add New Vehicle";
             isEditMode = false;
             _db = new CarRentalEntities();
@@ -25,8 +26,10 @@ namespace CarRentalApp
         public AddEditVehicle(TypesOfCar carToEdit)
         {
             InitializeComponent();
+            Text = "Edit vehicle";
             lbl_title.Text = "Edit Vehicle";
             isEditMode = true;
+
             _db = new CarRentalEntities();
             PopulateFields(carToEdit);
         }
@@ -53,11 +56,29 @@ namespace CarRentalApp
                     car.Make = tbMake.Text;
                     car.Model = tbModel.Text;
                     car.VIN = tbVIN.Text;
-                    car.Year = int.Parse(tbYear.Text);
+                    if (String.IsNullOrEmpty(tbYear.Text))
+                    {
+                        MessageBox.Show("The year must be a number.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        car.Year = int.Parse(tbYear.Text);
+                    }
                     car.LicensePlateNumber = tbLicensePlateNumber.Text;
 
-                    _db.SaveChanges();
-                    MessageBox.Show("Information Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!String.IsNullOrEmpty(tbMake.Text) &&
+                        !String.IsNullOrEmpty(tbModel.Text) &&
+                        !String.IsNullOrEmpty(tbVIN.Text) &&
+                        !String.IsNullOrEmpty(tbYear.Text) &&
+                        !String.IsNullOrEmpty(tbLicensePlateNumber.Text))
+                    {
+                        _db.SaveChanges();
+                        MessageBox.Show("Information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please, fill out every field.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 catch (Exception ex)
                 {
