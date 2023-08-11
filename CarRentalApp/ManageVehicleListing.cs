@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -55,30 +57,55 @@ namespace CarRentalApp
             //    var row = gvVehicleList.Rows[cell.RowIndex];
             //    var id = (int)row.Cells["Id"].Value;
             //}
-            var id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
+            int id = 0;
+            try
+            {
+                id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
+                // Query database for record
+                var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
 
-            // Query database for record
-            var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
-
-            // Launch AddEditVehicle window with data
-            var addEditVehicle = new AddEditVehicle(car);
-            addEditVehicle.MdiParent = this.MdiParent;
-            addEditVehicle.Show();
+                // Launch AddEditVehicle window with data
+                var addEditVehicle = new AddEditVehicle(car);
+                addEditVehicle.MdiParent = this.MdiParent;
+                addEditVehicle.Show();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("You must select the row from the first column.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }            
         }
 
         private void btnDeleteCar_Click(object sender, EventArgs e)
-        {
-            // Get Id of selected row
-            var id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
+        {            
+            try
+            {
+                // Get Id of selected row
+                var id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
 
-            // Query database for record
-            var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
+                // Query database for record
+                var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
 
-            // Delete vehicle from table
-            _db.TypesOfCars.Remove(car);
-            _db.SaveChanges();
+                // Delete vehicle from table
+                _db.TypesOfCars.Remove(car);
+                _db.SaveChanges();
 
-            gvVehicleList.Refresh();
+                gvVehicleList.Refresh();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("You must select the row from the first column.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } catch (DbUpdateException)
+            {
+                MessageBox.Show("The car could not be deleted because it has linked rentals.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
