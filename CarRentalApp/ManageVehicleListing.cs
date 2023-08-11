@@ -57,10 +57,9 @@ namespace CarRentalApp
             //    var row = gvVehicleList.Rows[cell.RowIndex];
             //    var id = (int)row.Cells["Id"].Value;
             //}
-            int id = 0;
             try
             {
-                id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
+                var id = (int)gvVehicleList.SelectedRows[0].Cells["Id"].Value;
                 // Query database for record
                 var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
 

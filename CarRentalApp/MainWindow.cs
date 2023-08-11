@@ -19,13 +19,13 @@ namespace CarRentalApp
 
         private void btnCarRentalSystem_Click(object sender, EventArgs e)
         {
-            AddRentalRecord rentalRecord = new AddRentalRecord();
+            AddEditRentalRecord rentalRecord = new AddEditRentalRecord();
             rentalRecord.Show();
         }
 
         private void addRentalRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddRentalRecord addRentalRecord = new AddRentalRecord();
+            AddEditRentalRecord addRentalRecord = new AddEditRentalRecord();
             addRentalRecord.MdiParent = this;
             addRentalRecord.WindowState = FormWindowState.Maximized;
             addRentalRecord.Show();
@@ -38,6 +38,14 @@ namespace CarRentalApp
             vehicleListing.MdiParent = this;
             vehicleListing.WindowState = FormWindowState.Maximized;
             vehicleListing.Show();
+        }
+
+        private void viewArchiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var manageRentalRecords = new ManageRentalRecords();
+            manageRentalRecords.MdiParent = this;
+            manageRentalRecords.WindowState = FormWindowState.Maximized;
+            manageRentalRecords.Show();
         }
     }
 }

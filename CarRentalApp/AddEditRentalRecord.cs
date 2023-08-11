@@ -10,15 +10,44 @@ using System.Windows.Forms;
 
 namespace CarRentalApp
 {
-    public partial class AddRentalRecord : System.Windows.Forms.Form
+    public partial class AddEditRentalRecord : System.Windows.Forms.Form
     {
         // Every entity represented in the DB Diagram
-        private readonly CarRentalEntities carRentalEntities;
-        public AddRentalRecord()
+        private bool isEditMode;
+        private readonly CarRentalEntities _db;
+        public AddEditRentalRecord()
         {
             InitializeComponent();
-            // Initialize a new instance of CarRentalEntities:
-            carRentalEntities = new CarRentalEntities();
+            Text = "Add new Rental Record";
+            lbl_title.Text = "Add New Record";
+            isEditMode = false;
+            _db = new CarRentalEntities();
+        }
+
+        public AddEditRentalRecord(CarRentalRecord recordToEdit)
+        {
+            InitializeComponent();
+            Text = "Edit Rental Record";
+            lbl_title.Text = "Edit rental record";
+            if (recordToEdit == null)
+            {
+                MessageBox.Show("Please, ensure that you selected a valid record to edit.");
+            }
+            else
+            {
+                isEditMode = true;
+                _db = new CarRentalEntities();
+                PopulateFields(recordToEdit);
+            }
+        }
+
+        private void PopulateFields(CarRentalRecord recordToEdit)
+        {
+            tbCustomerName.Text = recordToEdit.CustomerName;
+            dtDateRented.Value = (DateTime)recordToEdit.DateRented;
+            dtDateReturned.Value = (DateTime)recordToEdit.DateReturned;
+            tbCost.Text = recordToEdit.Cost.ToString();
+            lblRecordId.Text = recordToEdit.id.ToString();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -48,29 +77,34 @@ namespace CarRentalApp
                 // if(isValid == true)
                 if (isValid)
                 {
-                    // Instantiate a new object of the CarRentalRecord table:
                     var rentalRecord = new CarRentalRecord();
+                    if (isEditMode)
+                    {
+                        // If in edit mode, then get the ID and retrieve the record from the database
+                        // and place the result in the record object:
+                        var id = int.Parse(lblRecordId.Text);
+                        rentalRecord = _db.CarRentalRecords.FirstOrDefault(q => q.id == id);                        
+                    }
+                    // Populate record object with values from the form:
                     rentalRecord.CustomerName = customerName;
-                    // You can also do implicit casts to variables to convert to another type.
-                    // Instead of:
-                    // rentalRecord.Cost = Convert.ToDecimal(cost);
                     rentalRecord.Cost = (decimal)cost;
                     rentalRecord.DateRented = dateRented;
                     rentalRecord.DateReturned = dateReturned;
                     rentalRecord.TypeOfCarId = (int)cbCarType.SelectedValue;
-                    
-                    // Adds the content of rentalRecord to the database:
-                    carRentalEntities.CarRentalRecords.Add(rentalRecord);
-                    // But nothing gets registered until you save the changes:
-                    carRentalEntities.SaveChanges();
-
+                    // If not in edit mode, then add the record object to the database:
+                    if (!isEditMode)
+                    {
+                        _db.CarRentalRecords.Add(rentalRecord);
+                    }
+                    // Save changes made to the entity:
+                    _db.SaveChanges();
                     MessageBox.Show($"Customer name: {customerName}\n\r" +
                         $"Date rented: {dateRented}\n\r" +
                         $"Date returned: {dateReturned}\n\r" +
                         $"Type of car: {carType}\n\r" +
                         $"Cost: {cost}\n\r\n\r" +
                         $"Thank you for your bussiness!");
-
+                        Close();
                 }
                 else
                 {
@@ -90,14 +124,14 @@ namespace CarRentalApp
             // Native C# but the library is called LINQ:
             // select * from TypesOfCars
             //var cars = carRentalEntities.TypesOfCars.ToList();
-            var cars = carRentalEntities.TypesOfCars
-                .Select(q => new { Id = q.Id, Name = q.Make + " " + q.Model }).ToList();
+            var records = _db.CarRentalRecords
+                .Select(q => new { Id = q.id, Name = q.TypesOfCar.Make + " " + q.TypesOfCar.Model }).ToList();
             // DisplayMember: display the name:
             cbCarType.DisplayMember = "Name";
             // ValueMember: store the id:
             cbCarType.ValueMember = "Id";
             // DataSource: the source for the combo box comes from cars:
-            cbCarType.DataSource = cars;
+            cbCarType.DataSource = records;
         }
         
     }
