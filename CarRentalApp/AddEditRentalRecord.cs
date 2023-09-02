@@ -14,17 +14,19 @@ namespace CarRentalApp
     {
         // Every entity represented in the DB Diagram
         private bool isEditMode;
+        private ManageRentalRecords _manageRentalRecords;
         private readonly CarRentalEntities _db;
-        public AddEditRentalRecord()
+        public AddEditRentalRecord(ManageRentalRecords manageRentalRecords = null)
         {
             InitializeComponent();
             Text = "Add new Rental Record";
             lbl_title.Text = "Add New Record";
             isEditMode = false;
+            _manageRentalRecords = manageRentalRecords;
             _db = new CarRentalEntities();
         }
 
-        public AddEditRentalRecord(CarRentalRecord recordToEdit)
+        public AddEditRentalRecord(CarRentalRecord recordToEdit, ManageRentalRecords manageRentalRecords = null)
         {
             InitializeComponent();
             Text = "Edit Rental Record";
@@ -37,6 +39,7 @@ namespace CarRentalApp
             {
                 isEditMode = true;
                 _db = new CarRentalEntities();
+                _manageRentalRecords = manageRentalRecords;
                 PopulateFields(recordToEdit);
             }
         }
@@ -50,7 +53,7 @@ namespace CarRentalApp
             lblRecordId.Text = recordToEdit.id.ToString();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void BtnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
@@ -105,6 +108,7 @@ namespace CarRentalApp
                         $"Cost: {cost}\n\r\n\r" +
                         $"Thank you for your bussiness!");
                         Close();
+                    _manageRentalRecords.PopulateGrid();
                 }
                 else
                 {
@@ -123,15 +127,14 @@ namespace CarRentalApp
         {
             // Native C# but the library is called LINQ:
             // select * from TypesOfCars
-            //var cars = carRentalEntities.TypesOfCars.ToList();
-            var records = _db.CarRentalRecords
-                .Select(q => new { Id = q.id, Name = q.TypesOfCar.Make + " " + q.TypesOfCar.Model }).ToList();
+            var cars = _db.TypesOfCars
+                .Select(q => new { TypeOfCar = q.Make + " " + q.Model, Id = q.Id }).ToList();
             // DisplayMember: display the name:
-            cbCarType.DisplayMember = "Name";
+            cbCarType.DisplayMember = "TypeOfCar";
             // ValueMember: store the id:
             cbCarType.ValueMember = "Id";
             // DataSource: the source for the combo box comes from cars:
-            cbCarType.DataSource = records;
+            cbCarType.DataSource = cars;
         }
         
     }

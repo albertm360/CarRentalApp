@@ -6,9 +6,9 @@ C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\bin\Debug\EntityFram
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\bin\Debug\EntityFramework.xml
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.csproj.AssemblyReference.cache
-C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.csproj.SuggestedBindingRedirects.cache
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddEditVehicle.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddEditRentalRecord.resources
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.Login.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.MainWindow.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ManageRentalRecords.resources
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ManageVehicleListing.resources
@@ -18,3 +18,6 @@ C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalA
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.csproj.CopyComplete
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.exe
 C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.pdb
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ManageUsers.resources
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.AddUser.resources
+C:\Users\adminalbert\source\repos\CarRentalApp\CarRentalApp\obj\Debug\CarRentalApp.ResetPassword.resources

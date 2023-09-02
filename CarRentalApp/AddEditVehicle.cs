@@ -13,22 +13,25 @@ namespace CarRentalApp
     public partial class AddEditVehicle : Form
     {
         private bool isEditMode;
+        private ManageVehicleListing _manageVehicleListing;
         private readonly CarRentalEntities _db;
-        public AddEditVehicle()
+        public AddEditVehicle(ManageVehicleListing manageVehicleListing = null)
         {
             InitializeComponent();
             Text = "Add new vehicle";
             lbl_title.Text = "Add New Vehicle";
             isEditMode = false;
+            _manageVehicleListing = manageVehicleListing;
             _db = new CarRentalEntities();
         }
 
-        public AddEditVehicle(TypesOfCar carToEdit)
+        public AddEditVehicle(TypesOfCar carToEdit, ManageVehicleListing manageVehicleListing = null)
         {
             InitializeComponent();
             Text = "Edit vehicle";
             lbl_title.Text = "Edit Vehicle";
             isEditMode = true;
+            _manageVehicleListing = manageVehicleListing;
 
             _db = new CarRentalEntities();
             PopulateFields(carToEdit);
@@ -101,6 +104,7 @@ namespace CarRentalApp
 
                     _db.TypesOfCars.Add(newCar);
                     _db.SaveChanges();
+                    _manageVehicleListing.PopulateGrid();
                     MessageBox.Show("Information Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)

@@ -41,7 +41,7 @@ namespace CarRentalApp
 
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {
-            AddEditVehicle addEditVehicle = new AddEditVehicle();
+            AddEditVehicle addEditVehicle = new AddEditVehicle(this);
             addEditVehicle.MdiParent = this.MdiParent;
             addEditVehicle.Show();
         }
@@ -64,7 +64,7 @@ namespace CarRentalApp
                 var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
 
                 // Launch AddEditVehicle window with data
-                var addEditVehicle = new AddEditVehicle(car);
+                var addEditVehicle = new AddEditVehicle(car, this);
                 addEditVehicle.MdiParent = this.MdiParent;
                 addEditVehicle.Show();
             }
@@ -75,7 +75,7 @@ namespace CarRentalApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }            
+            }
         }
 
         private void btnDeleteCar_Click(object sender, EventArgs e)
@@ -88,11 +88,17 @@ namespace CarRentalApp
                 // Query database for record
                 var car = _db.TypesOfCars.FirstOrDefault(q => q.Id == id);
 
-                // Delete vehicle from table
-                _db.TypesOfCars.Remove(car);
-                _db.SaveChanges();
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete this record?", "Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
-                gvVehicleList.Refresh();
+                if (dr == DialogResult.Yes)
+                {
+                    // Delete vehicle from table
+                    _db.TypesOfCars.Remove(car);
+                    _db.SaveChanges();
+                }
+
+                PopulateGrid();
+
             }
             catch (ArgumentOutOfRangeException)
             {

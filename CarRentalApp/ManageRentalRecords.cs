@@ -17,7 +17,7 @@ namespace CarRentalApp
 
         private void btnAddRecord_Click(object sender, EventArgs e)
         {
-            var addRentalRecord = new AddEditRentalRecord
+            var addRentalRecord = new AddEditRentalRecord(this)
             {
                 MdiParent = this.MdiParent
             };
@@ -33,7 +33,7 @@ namespace CarRentalApp
                 var record = _db.CarRentalRecords.FirstOrDefault(q => q.id == id);
 
                 // Launch AddEditVehicle window with data
-                var addEditRentalRecord = new AddEditRentalRecord(record);
+                var addEditRentalRecord = new AddEditRentalRecord(record, this);
                 addEditRentalRecord.MdiParent = this.MdiParent;
                 addEditRentalRecord.Show();
             }
@@ -57,9 +57,14 @@ namespace CarRentalApp
                 // Query database for record
                 var record = _db.CarRentalRecords.FirstOrDefault(q => q.id == id);
 
-                // Delete vehicle from table
-                _db.CarRentalRecords.Remove(record);
-                _db.SaveChanges();
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete this record?", "Delete record", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.Yes)
+                {
+                    // Delete vehicle from table
+                    _db.CarRentalRecords.Remove(record);
+                    _db.SaveChanges();
+                }
 
                 PopulateGrid();
             }
@@ -95,7 +100,7 @@ namespace CarRentalApp
 
         }
 
-        private void PopulateGrid()
+        public void PopulateGrid()
         {
             var records = _db.CarRentalRecords.Select(q => new
             {
